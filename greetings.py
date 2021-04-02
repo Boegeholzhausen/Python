@@ -1,2 +1,0 @@
-print("Welcome")
-print("cunt")
