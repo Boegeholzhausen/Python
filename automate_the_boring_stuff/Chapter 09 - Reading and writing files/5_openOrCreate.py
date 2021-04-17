@@ -17,6 +17,6 @@ baconFile.close()
 
 print(os.getcwd())
 
-baconFile = open(r"Chapter 09 - Reading and writing files\bacon.txt", "a")
+baconFile = open(r"Chapter 09 - Reading and writing files\wasgeht.txt", "a")
 baconFile.write("\n\nBacon is delicious.")
 baconFile.close()
