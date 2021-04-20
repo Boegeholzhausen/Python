@@ -17,4 +17,4 @@ soup = BeautifulSoup(website.text, 'html.parser') # aus meinem website.text wird
 # soup.a.attrs['href'] # gibt mir nur das Link-Ziel zurück. 'class' würde mir die Klassen zurückgeben.
 # soup.a.text # gibt mir nur den Text zurück, auf dem der Link liegt
 # soup.find_all('a') # findet alle Links und speichert sie als Liste. Über die kann ich drüber iterieren.
-print(soup.find_all("strong")) # Sucht DIVs mit den angegebenen Klassennamen
+print(soup.find_all("div")) # Sucht DIVs mit den angegebenen Klassennamen
