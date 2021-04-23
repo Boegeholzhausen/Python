@@ -55,21 +55,26 @@ print(now.strftime("%d.%m.%Y %H:%M:%S"))
 # Excelfile öffnen
 os.chdir(r"C:\Python\WPMTracker")
 workbook = openpyxl.load_workbook("WPM.xlsx")
-sheet = workbook.get_sheet_by_name("WPM")
+sheet = workbook["WPM"]
+
 
 # Überprüfen, wo letzte gefüllte Zeile ist
-for i in range(1, 2):
-    if sheet.cell(row=i, column=1) != None and i <= 5:
-        sheet.cell(row=i+1, column=1).value = i
-        sheet.cell(row=i+1, column=2).value = now
-        sheet.cell(row=i+1, column=3).value = int(allwpm[0])
-        sheet.cell(row=i+1, column=4).value = totalhits
-        sheet.cell(row=i+1, column=5).value = int(allhits[0])
-        sheet.cell(row=i+1, column=6).value = int(allfailed[0])
-        sheet.cell(row=i+1, column=7).value = allacc[0]
-        sheet.cell(row=i+1, column=8).value = int(allright[0])
-        sheet.cell(row=i+1, column=9).value = int(allwrong[0])
-            
+start = 2
+for i in range(start, 100000000):
+    if sheet.cell(row=i, column=1).value == None:
+        sheet.cell(row=i, column=1).value = i-1
+        sheet.cell(row=i, column=2).value = now
+        sheet.cell(row=i, column=3).value = int(allwpm[0])
+        sheet.cell(row=i, column=4).value = totalhits
+        sheet.cell(row=i, column=5).value = int(allhits[0])
+        sheet.cell(row=i, column=6).value = int(allfailed[0])
+        sheet.cell(row=i, column=7).value = allacc[0]
+        sheet.cell(row=i, column=8).value = int(allright[0])
+        sheet.cell(row=i, column=9).value = int(allwrong[0])
+        break
+    else:
+        start += 1
+
 workbook.save("WPM.xlsx")
 
 
