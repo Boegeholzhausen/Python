@@ -6,7 +6,7 @@ try:
     while True: # The main program loop.
         print(' ' * indent, end='')
         print('*******')
-        time.sleep(1) # Pause for 1/10 of a second.
+        time.sleep(0.1) # Pause for 1/10 of a second.
 
         if indentIncreasing:
             # Increase the number of spaces:
