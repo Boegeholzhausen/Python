@@ -30,7 +30,7 @@ allfailed = failed.findall(text)
 
 totalhits = int(allhits[0]) + int(allfailed[0])
 
-acc = re.compile(r'(\d\d.\d|\d)\%')
+acc = re.compile(r'(\d\d.\d\d)\%')
 allacc = acc.findall(text)
 # print(allacc.sub(r'Agent \1****', 'Agent ALice gave the secret documents to Agent Bob.'))
 
