@@ -10,4 +10,4 @@ master = Tk()
 master.title("Weather App")
 master.config(bg = "white")
 
-img = Image.openr(r"C:\Python\Projects\")
+img = Image.open(r"C:\Python\Projects\weatherapp\img_weather.jpg")
