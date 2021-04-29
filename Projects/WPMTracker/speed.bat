@@ -1,1 +1,1 @@
-@pyw.exe C:\Python\WPMTracker\speed.py %*
+@pyw.exe C:\Python\Projects\WPMTracker\speed.py %*

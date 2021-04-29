@@ -1,1 +1,1 @@
-@py.exe C:\Python\WPMTracker\wpm.py %*
+@py.exe C:\Python\Projects\WPMTracker\wpm.py %*

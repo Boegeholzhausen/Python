@@ -57,7 +57,7 @@ print(now.strftime("%d.%m.%Y %H:%M:%S"))
 
 
 # Path wählen und Excelfile öffnen
-os.chdir(r"C:\Python\WPMTracker")
+os.chdir(r"C:\Python\Projects\WPMTracker")
 workbook = openpyxl.load_workbook("WPM.xlsx")
 sheet = workbook["WPM"]
 
