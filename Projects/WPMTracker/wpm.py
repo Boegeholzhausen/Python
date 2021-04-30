@@ -30,7 +30,7 @@ allfailed = failed.findall(text)
 
 totalhits = int(allhits[0]) + int(allfailed[0])
 
-acc = re.compile(r'(\d\d.\d\d)\%')
+acc = re.compile(r'(\d\d.\d|\d\d.\d\d)\%')
 allacc = acc.findall(text)
 # print(allacc.sub(r'Agent \1****', 'Agent ALice gave the secret documents to Agent Bob.'))
 
@@ -107,7 +107,7 @@ for i in range(start, 100000000):
         sheet.cell(row=i, column=4).font = font
         sheet.cell(row=i, column=4).fill = lightgrey
         sheet.cell(row=i, column=4).border = rightbot
-        sheet.cell(row=i, column=4).value = allacc[0] #ws['A1'].style = "Percent"
+        sheet.cell(row=i, column=4).value = allacc[0] 
 
         sheet.cell(row=i, column=5).alignment = Alignment(horizontal='center')
         sheet.cell(row=i, column=5).font = font
