@@ -5,7 +5,7 @@ import time
 import pyautogui
 
 
-webbrowser.open("https://10fastfingers.com/typing-test/german")
+webbrowser.open("https://10fastfingers.com/advanced-typing-test/german")
 
 
 # time.sleep(3)

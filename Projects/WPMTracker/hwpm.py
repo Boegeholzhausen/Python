@@ -58,7 +58,7 @@ print(now.strftime("%d.%m.%Y %H:%M:%S"))
 
 # Path wählen und Excelfile öffnen
 os.chdir(r"C:\Python\Projects\WPMTracker")
-workbook = openpyxl.load_workbook("WPMhard.xlsx")
+workbook = openpyxl.load_workbook("hWPM.xlsx")
 sheet = workbook["WPM"]
 
 
@@ -142,4 +142,4 @@ for i in range(start, 100000000):
     else:
         start += 1
 
-workbook.save("WPMhard.xlsx")
+workbook.save("hWPM.xlsx")
