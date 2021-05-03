@@ -16,13 +16,13 @@ from openpyxl.styles import Color, PatternFill, Font, Border, Alignment, colors
 from openpyxl.cell import Cell
 
 
-
 # chance directory
 os.chdir(r"C:\Python\Projects\WPMTracker")
 
 
 # GUI
 root = tk.Tk()
+
 
 canvas = tk.Canvas(root, width=480, height= 800, bg="#8FC8E5")
 canvas.grid(columnspan=2, rowspan=12)
