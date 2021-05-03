@@ -24,8 +24,8 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 # GUI
 root = tk.Tk()
 
-canvas = tk.Canvas(root, width=450, height= 700, bg="#8FC8E5")
-canvas.grid(columnspan=2, rowspan=10)
+canvas = tk.Canvas(root, width=480, height= 800, bg="#8FC8E5")
+canvas.grid(columnspan=2, rowspan=12)
 
 
 # Funktionen
@@ -125,6 +125,42 @@ def acc():
     plt.show()
 
 
+def hits():
+    # open sheet easy
+    workbook = openpyxl.load_workbook("WPM.xlsx")
+    sheet = workbook["WPM"]
+
+    # Data import from Excel easy
+    nrvalues = []
+    start = 2
+    for i in range(start, 1000):
+        if sheet.cell(row=i, column=1).value != None:
+            nrvalues.append(sheet.cell(row=i, column=1).value)
+            start += 1
+
+    hitsvalues = []
+    start = 2
+    for i in range(start, 1000):
+        if sheet.cell(row=i, column=5).value != None:
+            hitsvalues.append(sheet.cell(row=i, column=5).value)
+            start += 1
+
+    # Data
+    dfhits=pd.DataFrame({'xvalues': nrvalues, 'yvalues': hitsvalues})
+
+    # Plot Tastenanschläge
+    plt.style.use("seaborn")
+    plt.figure(figsize=(23,5))
+    plt.rcParams["figure.figsize"]
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge)', data=dfhits)
+    plt.title("WPM Tracker (Tastenanschläge)")
+    plt.xlabel("Nr.")
+    plt.ylabel("Tastenanschläge")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
 def hwpm():
     # open sheet hard
     hworkbook = openpyxl.load_workbook("hWPM.xlsx")
@@ -196,6 +232,43 @@ def hacc():
     plt.title("WPM Tracker (Accuracy) [Hard]")
     plt.xlabel("Nr.")
     plt.ylabel("%")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+
+def hhits():
+    # open sheet hard
+    hworkbook = openpyxl.load_workbook("hWPM.xlsx")
+    hsheet = hworkbook["WPM"]
+
+    hnrvalues = []
+    start = 2
+    for i in range(start, 1000):
+        if hsheet.cell(row=i, column=1).value != None:
+            hnrvalues.append(hsheet.cell(row=i, column=1).value)
+            start += 1
+
+    # Data import from Excel hard
+    hhitsvalues = []
+    start = 2
+    for i in range(start, 1000):
+        if hsheet.cell(row=i, column=5).value != None:
+            hhitsvalues.append(hsheet.cell(row=i, column=5).value)
+            start += 1
+
+    # Data
+    dfhhits=pd.DataFrame({'xvalues': hnrvalues, 'yvalues': hhitsvalues})
+    
+
+    # Plot Tastenanschläge [hard]
+    plt.style.use("seaborn")
+    plt.figure(figsize=(23,5))
+    plt.rcParams["figure.figsize"]
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge) [Hard]', data=dfhhits)
+    plt.title("WPM Tracker (Tastenanschläge) [Hard]")
+    plt.xlabel("Nr.")
+    plt.ylabel("Tastenanschläge")
     plt.grid(True)
     plt.tight_layout()
     plt.show()
@@ -569,6 +642,10 @@ acc_btn = tk.Button(root, text = "Accuracy", command=lambda:acc())
 acc_btn.grid(column=0, row=8)
 acc_btn.config(bg="#85C98B", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
+hits_btn = tk.Button(root, text = "Tastenanschläge", command=lambda:hits())
+hits_btn.grid(column=0, row=9)
+hits_btn.config(bg="#85C98B", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
+
 hwpm_btn = tk.Button(root, text = "WPM", command=lambda:hwpm())
 hwpm_btn.grid(column=1, row=7)
 hwpm_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
@@ -576,5 +653,9 @@ hwpm_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), 
 hacc_btn = tk.Button(root, text = "Accuracy", command=lambda:hacc())
 hacc_btn.grid(column=1, row=8)
 hacc_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
+
+hhits_btn = tk.Button(root, text = "Tastenanschläge", command=lambda:hhits())
+hhits_btn.grid(column=1, row=9)
+hhits_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
 root.mainloop()
