@@ -22,9 +22,9 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 
 # GUI
 root = tk.Tk()
-
-
-canvas = tk.Canvas(root, width=480, height= 800, bg="#8FC8E5")
+root.title("WPM Tracker")
+background = "#8FC8E5"
+canvas = tk.Canvas(root, width=480, height= 800, bg=background)
 canvas.grid(columnspan=2, rowspan=12)
 
 
@@ -577,18 +577,23 @@ txtfontsize = 18
 
 
 # logo
-logo = Image.open(r"C:\Python\Tutorials\TkinterTut\logo.png")
+logo = Image.open(r"C:\Python\Projects\WPMTracker\icons\logo.png")
 logo = ImageTk.PhotoImage(logo)
 logo_label = tk.Label(root, image=logo, borderwidth=2)
 logo_label.image = logo
 logo_label.grid(columnspan=3, column=0, row=0)
 
 
-
 # Instuction 1
 instructions2 = tk.Label(root, text="Make the Test")
-instructions2.grid(columnspan=3, column=0, row=1)
+instructions2.grid(columnspan=2, column=0, row=1)
 instructions2.config(bg="#8FC8E5", font=("Calibri bold", txtfontsize))
+
+test_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\test_icon.png")
+test_icon = ImageTk.PhotoImage(test_icon)
+test_icon_label = tk.Label(root, image=test_icon, bg = background)
+test_icon_label.image = test_icon
+test_icon_label.grid(columnspan=1, column=1, row=1)
 
 
 # Button easy & hard speed
@@ -599,6 +604,7 @@ speed_btn.config(bg="#0A4A1B", fg="white", font=("Calibri bold", btnfontsize), h
 hspeed_btn = tk.Button(root, text="Hard Test", command=lambda:hspeed())  # command=lambda:func()
 hspeed_btn.grid(column=1, row=2)
 hspeed_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
+
 
 # Button Ergebniss einlesen
 result_btn = tk.Button(root, text="Copy Results", command=lambda:getValues())  # command=lambda:func()
@@ -615,6 +621,12 @@ instructions2= tk.Label(root, text="Open Excel Files")
 instructions2.grid(columnspan=3, column=0, row=4)
 instructions2.config(bg="#8FC8E5", font=("Calibri bold", txtfontsize))
 
+excel_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\excel_icon.png")
+excel_icon = ImageTk.PhotoImage(excel_icon)
+excel_icon_label = tk.Label(root, image=excel_icon, bg = background)
+excel_icon_label.image = excel_icon
+excel_icon_label.grid(columnspan=1, column=1, row=4)
+
 
 # Button easy & hard excel
 easy_btn = tk.Button(root, text="Easy", command=lambda:easy())  # command=lambda:func()
@@ -629,8 +641,16 @@ hard_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), he
 
 # Instuction 3
 instructions3 = tk.Label(root, text="Open Graphs")
-instructions3.grid(columnspan=3, column=0, row=6)
+instructions3.grid(columnspan=2, column=0, row=6)
 instructions3.config(bg="#8FC8E5", font=("Calibri bold", txtfontsize))
+
+
+graph_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\graph_icon.png")
+graph_icon = ImageTk.PhotoImage(graph_icon)
+graph_icon_label = tk.Label(root, image=graph_icon, bg = background)
+graph_icon_label.image = graph_icon
+graph_icon_label.grid(columnspan=1, column=1, row=6)
+
 
 # #16465E darkblue
 # Button easy&hard graph
