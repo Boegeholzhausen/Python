@@ -23,7 +23,9 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 # GUI
 root = tk.Tk()
 root.title("WPM Tracker")
-background = "#8FC8E5"
+background = "#97D5FF"
+root.resizable(False, False)
+
 canvas = tk.Canvas(root, width=480, height= 800, bg=background)
 canvas.grid(columnspan=2, rowspan=12)
 
@@ -571,7 +573,7 @@ def gethValues():
 
 # heights & widths
 btnh = 1
-btnw = 15
+btnw = 16
 btnfontsize = 14
 txtfontsize = 18
 
@@ -587,7 +589,7 @@ logo_label.grid(columnspan=3, column=0, row=0)
 # Instuction 1
 instructions2 = tk.Label(root, text="Make the Test")
 instructions2.grid(columnspan=2, column=0, row=1)
-instructions2.config(bg="#8FC8E5", font=("Calibri bold", txtfontsize))
+instructions2.config(bg=background, font=("Calibri bold", txtfontsize))
 
 test_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\test_icon.png")
 test_icon = ImageTk.PhotoImage(test_icon)
@@ -619,7 +621,8 @@ hresult_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize),
 # Instuction 2
 instructions2= tk.Label(root, text="Open Excel Files")
 instructions2.grid(columnspan=3, column=0, row=4)
-instructions2.config(bg="#8FC8E5", font=("Calibri bold", txtfontsize))
+instructions2.config(bg=background, font=("Calibri bold", txtfontsize))
+
 
 excel_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\excel_icon.png")
 excel_icon = ImageTk.PhotoImage(excel_icon)
@@ -642,7 +645,7 @@ hard_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), he
 # Instuction 3
 instructions3 = tk.Label(root, text="Open Graphs")
 instructions3.grid(columnspan=2, column=0, row=6)
-instructions3.config(bg="#8FC8E5", font=("Calibri bold", txtfontsize))
+instructions3.config(bg=background, font=("Calibri bold", txtfontsize))
 
 
 graph_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\graph_icon.png")
