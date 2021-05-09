@@ -1,0 +1,1 @@
+@py.exe C:\Python\Projects\PhilipsHue\party.py %*

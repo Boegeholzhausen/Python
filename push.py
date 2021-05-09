@@ -1,6 +1,5 @@
 import pyautogui, time
 
-
 pyautogui.typewrite(["winleft", "g", "i", "t", "enter"], interval=0.1)
 time.sleep(1)
 pyautogui.typewrite(["c", "d", " ", "C", ":", "enter"], interval=0.1)
