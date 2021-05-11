@@ -33,7 +33,6 @@ canvas.grid(columnspan=2, rowspan=12)
 # Funktionen
 # Excel Öffnen
 def easy():
-    
     pyautogui.keyDown("winleft")
     pyautogui.press("r")
     pyautogui.keyUp("winleft")

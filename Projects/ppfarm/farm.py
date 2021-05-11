@@ -19,7 +19,7 @@ irony = 747
 
 def fill(x, y):
     pyautogui.click(x, y)
-    pyautogui.typewrite("5000", interval=0.2)
+    pyautogui.typewrite("1000", interval=0.2)
     pyautogui.press("enter")
     time.sleep(0.5)
     pyautogui.press("enter")
