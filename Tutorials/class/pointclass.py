@@ -24,3 +24,5 @@ a = Point(0,2)
 d = a + Point(1,1)
 
 print(d.x,d.y)
+
+#7a0000
