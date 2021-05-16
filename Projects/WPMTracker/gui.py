@@ -15,9 +15,9 @@ from openpyxl.styles.borders import Border, Side
 from openpyxl.styles import Color, PatternFill, Font, Border, Alignment, colors
 from openpyxl.cell import Cell
 import funcs.make_test as mt
-import funcs.copy_value as cv
 import funcs.fill_excel as fe
 import funcs.open_excel as oe
+import funcs.copy_value as cv
 
 
 
@@ -267,12 +267,14 @@ def hhits():
 def getValues():
     # Kopiere Values von der Seite
     cv.copy()
+    # In Excel eintragen
     fe.fill_excel_easy()
 
 # Values Kopieren, Werte finden und in Excel passend speichern [hard]
 def gethValues():
     # Kopiere Values von der Seite
     cv.copy()
+    # In Excel eintragen
     fe.fill_excel_hard()
     
 

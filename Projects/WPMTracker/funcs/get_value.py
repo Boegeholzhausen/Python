@@ -1,4 +1,4 @@
-import os, re, pyperclip
+import os, re, pyperclip, pyautogui
 import openpyxl
 import time, datetime
 from datetime import time
@@ -9,7 +9,6 @@ from openpyxl.styles import Color, PatternFill, Font, Border, Alignment, colors
 from openpyxl.cell import Cell
 import variables as var
 import copy_value as cv
-
 
 # Values Kopieren, Werte finden und in Excel passend speichern [easy]
 def getValues():

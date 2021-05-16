@@ -1,5 +1,6 @@
 import time, pyautogui
 
+# Von der Seite kopieren
 def copy():
     time.sleep(0.2)
     pyautogui.moveTo(950, 750)
