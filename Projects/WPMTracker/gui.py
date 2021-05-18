@@ -29,9 +29,7 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 root = tk.Tk()
 root.title("WPM Tracker")
 
-#root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file=r"C:\Python\Projects\WPMTracker\icons\window_icon1"))
-root.iconphoto(False, tk.PhotoImage(file=r"C:\Python\Projects\WPMTracker\icons\window_icon.png"))
-#root.iconbitmap(r"C:\Python\Projects\WPMTracker\icons\window_icon.ico")
+root.iconbitmap(r"C:\Python\Projects\WPMTracker\icons\window_icon.ico")
 
 background = "#97D5FF"
 root.resizable(False, False)
