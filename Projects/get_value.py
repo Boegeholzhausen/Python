@@ -10,6 +10,7 @@ from openpyxl.cell import Cell
 import variables as var
 import copy_value as cv
 
+
 # Values Kopieren, Werte finden und in Excel passend speichern [easy]
 def getValues():
     # Kopiere Values von der Seite

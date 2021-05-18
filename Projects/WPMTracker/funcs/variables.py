@@ -13,6 +13,3 @@ white = PatternFill(start_color='FFFFFF', end_color='FFFFFF', fill_type='solid')
 rightbot = Border(right=Side(style='thick'), bottom=Side(style='thin'))
 fontb = Font(name='Calibri', size=11, bold=True, italic=False, vertAlign=None, underline='none', strike=False, color='FF000000')
 font = Font(name='Calibri', size=11, bold=False, italic=False, vertAlign=None, underline='none', strike=False, color='FF000000')
-
-# Aktuelle Zeit festlegen
-now = datetime.datetime.now()

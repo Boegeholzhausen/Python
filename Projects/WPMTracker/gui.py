@@ -18,7 +18,7 @@ import funcs.make_test as mt
 import funcs.fill_excel as fe
 import funcs.open_excel as oe
 import funcs.copy_value as cv
-
+import funcs.graph as gr
 
 
 # chance directory
@@ -28,239 +28,18 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 # GUI
 root = tk.Tk()
 root.title("WPM Tracker")
+
+#root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file=r"C:\Python\Projects\WPMTracker\icons\window_icon1"))
+root.iconphoto(False, tk.PhotoImage(file=r"C:\Python\Projects\WPMTracker\icons\window_icon.png"))
+#root.iconbitmap(r"C:\Python\Projects\WPMTracker\icons\window_icon.ico")
+
 background = "#97D5FF"
 root.resizable(False, False)
+root.geometry("+-600+250")
 
-canvas = tk.Canvas(root, width=480, height= 800, bg=background)
+
+canvas = tk.Canvas(root, width=460, height= 800, bg=background)
 canvas.grid(columnspan=2, rowspan=12)
-
-
-
-## Graphs
-def wpm():
-    # open sheet easy
-    workbook = openpyxl.load_workbook("WPM.xlsx")
-    sheet = workbook["WPM"]
-
-    # Data import from Excel easy
-    nrvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if sheet.cell(row=i, column=1).value != None:
-            nrvalues.append(sheet.cell(row=i, column=1).value)
-            start += 1
-
-    wpmvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if sheet.cell(row=i, column=3).value != None:
-            wpmvalues.append(sheet.cell(row=i, column=3).value)
-            start += 1
-
-    # Data
-    dfwpm=pd.DataFrame({'xvalues': nrvalues, 'yvalues': wpmvalues})
-
-    # Plot WPM
-    plt.style.use("seaborn")
-    plt.figure(figsize=(23,5))
-    plt.rcParams["figure.figsize"]
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM)', data=dfwpm)
-    plt.title("WPM Tracker (WPM)")
-    plt.xlabel("Nr.")
-    plt.ylabel("WPM")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-
-
-def acc():
-    # open sheet easy
-    workbook = openpyxl.load_workbook("WPM.xlsx")
-    sheet = workbook["WPM"]
-
-    # Data import from Excel easy
-    nrvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if sheet.cell(row=i, column=1).value != None:
-            nrvalues.append(sheet.cell(row=i, column=1).value)
-            start += 1
-
-
-    accvalues = []
-    newacc = []
-    start = 2
-    for i in range(start, 1000):
-        if sheet.cell(row=i, column=4).value != None:
-            accvalues.append(sheet.cell(row=i, column=4).value)
-            start += 1
-            word = accvalues[i-2]
-            newacc.append(float(word))
-
-    # Data
-    dfacc=pd.DataFrame({'xvalues': nrvalues, 'yvalues': newacc})
-
-    # Plot Acc
-    plt.style.use("seaborn")
-    plt.figure(figsize=(23,5))
-    plt.rcParams["figure.figsize"]
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy)', data=dfacc)
-    plt.title("WPM Tracker (Accuracy)")
-    plt.xlabel("Nr.")
-    plt.ylabel("%")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-
-
-def hits():
-    # open sheet easy
-    workbook = openpyxl.load_workbook("WPM.xlsx")
-    sheet = workbook["WPM"]
-
-    # Data import from Excel easy
-    nrvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if sheet.cell(row=i, column=1).value != None:
-            nrvalues.append(sheet.cell(row=i, column=1).value)
-            start += 1
-
-    hitsvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if sheet.cell(row=i, column=5).value != None:
-            hitsvalues.append(sheet.cell(row=i, column=5).value)
-            start += 1
-
-    # Data
-    dfhits=pd.DataFrame({'xvalues': nrvalues, 'yvalues': hitsvalues})
-
-    # Plot Tastenanschläge
-    plt.style.use("seaborn")
-    plt.figure(figsize=(23,5))
-    plt.rcParams["figure.figsize"]
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge)', data=dfhits)
-    plt.title("WPM Tracker (Tastenanschläge)")
-    plt.xlabel("Nr.")
-    plt.ylabel("Tastenanschläge")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-
-
-def hwpm():
-    # open sheet hard
-    hworkbook = openpyxl.load_workbook("hWPM.xlsx")
-    hsheet = hworkbook["WPM"]
-
-    hnrvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if hsheet.cell(row=i, column=1).value != None:
-            hnrvalues.append(hsheet.cell(row=i, column=1).value)
-            start += 1
-
-    # Data import from Excel hard
-    hwpmvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if hsheet.cell(row=i, column=3).value != None:
-            hwpmvalues.append(hsheet.cell(row=i, column=3).value)
-            start += 1
-
-    # Data
-    dfhwpm=pd.DataFrame({'xvalues': hnrvalues, 'yvalues': hwpmvalues})
-    
-
-    # Plot WPM [hard]
-    plt.style.use("seaborn")
-    plt.figure(figsize=(23,5))
-    plt.rcParams["figure.figsize"]
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM) [Hard]', data=dfhwpm)
-    plt.title("WPM Tracker (WPM) [Hard]")
-    plt.xlabel("Nr.")
-    plt.ylabel("WPM")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-
-
-def hacc():
-    # open sheet hard
-    hworkbook = openpyxl.load_workbook("hWPM.xlsx")
-    hsheet = hworkbook["WPM"]
-
-    hnrvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if hsheet.cell(row=i, column=1).value != None:
-            hnrvalues.append(hsheet.cell(row=i, column=1).value)
-            start += 1
-
-    # Data import from Excel hard
-    haccvalues = []
-    hnewacc = []
-    start = 2
-    for i in range(start, 1000):
-        if hsheet.cell(row=i, column=4).value != None:
-            haccvalues.append(hsheet.cell(row=i, column=4).value)
-            start += 1
-            word = haccvalues[i-2]
-            hnewacc.append(float(word))
-
-    # Data
-    dfhacc=pd.DataFrame({'xvalues': hnrvalues, 'yvalues': hnewacc})
-
-    # Plot Acc [hard]
-    plt.style.use("seaborn")
-    plt.figure(figsize=(23,5))
-    plt.rcParams["figure.figsize"]
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy) [Hard]', data=dfhacc)
-    plt.title("WPM Tracker (Accuracy) [Hard]")
-    plt.xlabel("Nr.")
-    plt.ylabel("%")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-
-
-def hhits():
-    # open sheet hard
-    hworkbook = openpyxl.load_workbook("hWPM.xlsx")
-    hsheet = hworkbook["WPM"]
-
-    hnrvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if hsheet.cell(row=i, column=1).value != None:
-            hnrvalues.append(hsheet.cell(row=i, column=1).value)
-            start += 1
-
-    # Data import from Excel hard
-    hhitsvalues = []
-    start = 2
-    for i in range(start, 1000):
-        if hsheet.cell(row=i, column=5).value != None:
-            hhitsvalues.append(hsheet.cell(row=i, column=5).value)
-            start += 1
-
-    # Data
-    dfhhits=pd.DataFrame({'xvalues': hnrvalues, 'yvalues': hhitsvalues})
-    
-
-    # Plot Tastenanschläge [hard]
-    plt.style.use("seaborn")
-    plt.figure(figsize=(23,5))
-    plt.rcParams["figure.figsize"]
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge) [Hard]', data=dfhhits)
-    plt.title("WPM Tracker (Tastenanschläge) [Hard]")
-    plt.xlabel("Nr.")
-    plt.ylabel("Tastenanschläge")
-    plt.grid(True)
-    plt.tight_layout()
-    plt.show()
-
 
 
 # Values Kopieren, Werte finden und in Excel passend speichern [easy]
@@ -276,13 +55,12 @@ def gethValues():
     cv.copy()
     # In Excel eintragen
     fe.fill_excel_hard()
-    
 
 
 ## TK Window
 # heights & widths
 btnh = 1
-btnw = 16
+btnw = 18
 btnfontsize = 14
 txtfontsize = 18
 
@@ -357,27 +135,27 @@ graph_icon_label.grid(columnspan=1, column=1, row=6)
 
 # #16465E darkblue
 # Button easy&hard graph
-wpm_btn = tk.Button(root, text = "WPM", command=lambda:wpm())
+wpm_btn = tk.Button(root, text = "WPM", command=lambda:gr.wpm())
 wpm_btn.grid(column=0, row=7)
 wpm_btn.config(bg="#85C98B", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
-acc_btn = tk.Button(root, text = "Accuracy", command=lambda:acc())
+acc_btn = tk.Button(root, text = "Accuracy", command=lambda:gr.acc())
 acc_btn.grid(column=0, row=8)
 acc_btn.config(bg="#85C98B", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
-hits_btn = tk.Button(root, text = "Tastenanschläge", command=lambda:hits())
+hits_btn = tk.Button(root, text = "Tastenanschläge", command=lambda:gr.hits())
 hits_btn.grid(column=0, row=9)
 hits_btn.config(bg="#85C98B", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
-hwpm_btn = tk.Button(root, text = "WPM", command=lambda:hwpm())
+hwpm_btn = tk.Button(root, text = "WPM", command=lambda:gr.hwpm())
 hwpm_btn.grid(column=1, row=7)
 hwpm_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
-hacc_btn = tk.Button(root, text = "Accuracy", command=lambda:hacc())
+hacc_btn = tk.Button(root, text = "Accuracy", command=lambda:gr.hacc())
 hacc_btn.grid(column=1, row=8)
 hacc_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
-hhits_btn = tk.Button(root, text = "Tastenanschläge", command=lambda:hhits())
+hhits_btn = tk.Button(root, text = "Tastenanschläge", command=lambda:gr.hhits())
 hhits_btn.grid(column=1, row=9)
 hhits_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 

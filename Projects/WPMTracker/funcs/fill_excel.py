@@ -17,12 +17,10 @@ rightbot = Border(right=Side(style='thick'), bottom=Side(style='thin'))
 fontb = Font(name='Calibri', size=11, bold=True, italic=False, vertAlign=None, underline='none', strike=False, color='FF000000')
 font = Font(name='Calibri', size=11, bold=False, italic=False, vertAlign=None, underline='none', strike=False, color='FF000000')
 
-# Aktuelle Zeit festlegen
-now = datetime.datetime.now()
-
 
 # Values in Excel eintragen [easy]
 def fill_excel_easy():
+    now = datetime.datetime.now()
     # Path wählen und Excelfile öffnen
     os.chdir(r"C:\Python\Projects\WPMTracker")
     workbook = openpyxl.load_workbook("WPM.xlsx")
@@ -115,6 +113,7 @@ def fill_excel_easy():
 
 # Values in Excel eintragen [hard]
 def fill_excel_hard():
+    now = datetime.datetime.now()
     # Path wählen und Excelfile öffnen
     os.chdir(r"C:\Python\Projects\WPMTracker")
     workbook = openpyxl.load_workbook("hWPM.xlsx")
