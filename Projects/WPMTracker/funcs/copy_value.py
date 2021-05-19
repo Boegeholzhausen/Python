@@ -10,7 +10,7 @@ def copy():
     pyautogui.press("c")
     pyautogui.keyUp("ctrl")
 
-    time.sleep(0.5)
+    time.sleep(0.8)
     pyautogui.click(1001, 336)
     time.sleep(0.1)
     pyautogui.press("tab")
