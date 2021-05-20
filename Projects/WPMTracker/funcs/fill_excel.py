@@ -4,6 +4,7 @@ from openpyxl.styles.borders import Border, Side
 from openpyxl.styles import Color, PatternFill, Font, Border, Alignment, colors
 from openpyxl.cell import Cell
 import datetime
+import time, pyautogui
 
 
 # Farben
@@ -16,6 +17,25 @@ white = PatternFill(start_color='FFFFFF', end_color='FFFFFF', fill_type='solid')
 rightbot = Border(right=Side(style='thick'), bottom=Side(style='thin'))
 fontb = Font(name='Calibri', size=11, bold=True, italic=False, vertAlign=None, underline='none', strike=False, color='FF000000')
 font = Font(name='Calibri', size=11, bold=False, italic=False, vertAlign=None, underline='none', strike=False, color='FF000000')
+
+
+# Von der Seite kopieren und resetten
+def copy():
+    time.sleep(0.2)
+    pyautogui.moveTo(950, 750)
+    time.sleep(0.1)
+    pyautogui.drag(-295, -250, duration=0.5, button="left")
+    pyautogui.keyDown("ctrl")
+    pyautogui.press("c")
+    pyautogui.keyUp("ctrl")
+
+    time.sleep(0.8)
+    pyautogui.click(1001, 336)
+    time.sleep(0.1)
+    pyautogui.press("tab")
+    pyautogui.press("enter")
+    time.sleep(0.1)
+    pyautogui.moveTo(688, 512)
 
 
 # Values in Excel eintragen [easy]
@@ -203,3 +223,18 @@ def fill_excel_hard():
         else:
             start += 1
     workbook.save("hWPM.xlsx")
+
+
+# Values Kopieren, Werte finden und in Excel passend speichern [easy]
+def getValues():
+    # Kopiere Values von der Seite
+    copy()
+    # In Excel eintragen
+    fill_excel_easy()
+
+# Values Kopieren, Werte finden und in Excel passend speichern [hard]
+def gethValues():
+    # Kopiere Values von der Seite
+    copy()
+    # In Excel eintragen
+    fill_excel_hard()
