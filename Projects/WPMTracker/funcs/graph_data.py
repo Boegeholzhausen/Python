@@ -6,7 +6,7 @@ import os
 os.chdir(r"C:\Python\Projects\WPMTracker")
 
 
-def graph():
+def data():
     global dfwpm
     global dfacc
     global dfhits
@@ -53,7 +53,7 @@ def graph():
     return dfwpm, dfacc, dfhits
 
 
-def hgraph():
+def hdata():
     global dfhwpm
     global dfhacc
     global dfhhits

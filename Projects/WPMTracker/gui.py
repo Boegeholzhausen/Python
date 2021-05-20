@@ -8,7 +8,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import funcs.make_test as mt
 import funcs.fill_excel as fe
 import funcs.open_excel as oe
-import funcs.graph as gr
+import funcs.graph_data as gd
 import funcs.records as rc
 
 
@@ -17,7 +17,7 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 
 
 def graphs():
-    gr.graph()
+    gd.data()
     graphs = Toplevel(root) # mit root verbinden
     graphs.title("Graphs")
     graphs.iconbitmap(r"C:\Python\Projects\WPMTracker\icons\window_icon.ico")
@@ -32,7 +32,7 @@ def graphs():
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
     wpmline.get_tk_widget().grid(columnspan=2, column=0, row=0, sticky="NW", padx=10, pady=10)
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=4, label='WPM Tracker (WPM)', data=gr.dfwpm)
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM)', data=gd.dfwpm)
     plt.xlabel("Nr.")
     plt.ylabel("WPM")
     plt.grid(True)
@@ -44,7 +44,7 @@ def graphs():
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
     wpmline.get_tk_widget().grid(columnspan=2, column=0, row=1, sticky="NW", padx=10, pady=10)
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=4, label='WPM Tracker (Accuracy)', data=gr.dfacc)
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy)', data=gd.dfacc)
     plt.xlabel("Nr.")
     plt.ylabel("%")
     plt.grid(True)
@@ -56,7 +56,7 @@ def graphs():
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
     wpmline.get_tk_widget().grid(columnspan=2, column=0, row=2, sticky="NW", padx=10, pady=10)
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=4, label='WPM Tracker (Tastenanschläge)', data=gr.dfhits)
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge)', data=gd.dfhits)
     plt.xlabel("Nr.")
     plt.ylabel("Tastenanschläge")
     plt.grid(True)
@@ -94,7 +94,7 @@ def graphs():
 
 
 def hgraphs():
-    gr.hgraph()
+    gd.hdata()
     graphs = Toplevel(root) # mit root verbinden
     graphs.title("Graphs")
     graphs.iconbitmap(r"C:\Python\Projects\WPMTracker\icons\window_icon.ico")
@@ -109,7 +109,7 @@ def hgraphs():
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
     wpmline.get_tk_widget().grid(columnspan=2, column=0, row=0, sticky="NW", padx=10, pady=10)
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=4, label='WPM Tracker (WPM) [Hard]', data=gr.dfhwpm)
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM) [Hard]', data=gd.dfhwpm)
     plt.xlabel("Nr.")
     plt.ylabel("WPM")
     plt.grid(True)
@@ -121,7 +121,7 @@ def hgraphs():
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
     wpmline.get_tk_widget().grid(columnspan=2, column=0, row=1, sticky="NW", padx=10, pady=10)
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=4, label='WPM Tracker (Accuracy) [Hard]', data=gr.dfhacc)
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy) [Hard]', data=gd.dfhacc)
     plt.xlabel("Nr.")
     plt.ylabel("%")
     plt.grid(True)
@@ -133,7 +133,7 @@ def hgraphs():
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
     wpmline.get_tk_widget().grid(columnspan=2, column=0, row=2, sticky="NW", padx=10, pady=10)
-    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=4, label='WPM Tracker (Tastenanschläge) [Hard]', data=gr.dfhhits)
+    plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge) [Hard]', data=gd.dfhhits)
     plt.xlabel("Nr.")
     plt.ylabel("Tastenanschläge")
     plt.grid(True)
