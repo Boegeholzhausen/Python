@@ -17,6 +17,9 @@ os.chdir(r"C:\Python\Projects\WPMTracker")
 
 
 def graphs():
+    rc.wpm()
+    rc.acc()
+    rc.hits()
     gd.data()
     graphs = Toplevel(root) # mit root verbinden
     graphs.title("Graphs")
@@ -27,7 +30,7 @@ def graphs():
     canvas.grid(columnspan=3, rowspan=3)
 
     plt.figure
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-deep")
     wpm_graph = plt.figure(figsize=(12,3))
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
@@ -35,11 +38,12 @@ def graphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM)', data=gd.dfwpm)
     plt.xlabel("Nr.")
     plt.ylabel("WPM")
+    plt.legend()
     plt.grid(True)
     plt.tight_layout()
 
     plt.figure
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-deep")
     wpm_graph = plt.figure(figsize=(12,3))
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
@@ -47,11 +51,12 @@ def graphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy)', data=gd.dfacc)
     plt.xlabel("Nr.")
     plt.ylabel("%")
+    plt.legend()
     plt.grid(True)
     plt.tight_layout()
 
     plt.figure
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-deep")
     wpm_graph = plt.figure(figsize=(12,3))
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
@@ -59,11 +64,12 @@ def graphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge)', data=gd.dfhits)
     plt.xlabel("Nr.")
     plt.ylabel("Tastenanschläge")
+    plt.legend()
     plt.grid(True)
     plt.tight_layout()
 
     # WPM Record (Label)
-    wpmrecord = tk.Label(graphs, text="WPM Record")
+    wpmrecord = tk.Label(graphs, text="WPM Record:")
     wpmrecord.grid(column=2, row=0, sticky="N", pady=100, padx=20)
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#1f262e")
 
@@ -73,7 +79,7 @@ def graphs():
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#0A4A1B")
 
     # ACC Record (Label)
-    wpmrecord = tk.Label(graphs, text="Acc Record")
+    wpmrecord = tk.Label(graphs, text="Acc Record:")
     wpmrecord.grid(column=2, row=1, sticky="N", pady=100, padx=20)
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#1f262e")
 
@@ -83,7 +89,7 @@ def graphs():
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#0A4A1B")
 
     # Hits Record (Label)
-    wpmrecord = tk.Label(graphs, text="Hits Record")
+    wpmrecord = tk.Label(graphs, text="Hits Record:")
     wpmrecord.grid(column=2, row=2, sticky="N", pady=100, padx=20)
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#1f262e")
 
@@ -94,6 +100,9 @@ def graphs():
 
 
 def hgraphs():
+    rc.hwpm()
+    rc.hacc()
+    rc.hhits()
     gd.hdata()
     graphs = Toplevel(root) # mit root verbinden
     graphs.title("Graphs")
@@ -104,7 +113,7 @@ def hgraphs():
     canvas.grid(columnspan=3, rowspan=3)
 
     plt.figure
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-deep")
     wpm_graph = plt.figure(figsize=(12,3))
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
@@ -116,7 +125,7 @@ def hgraphs():
     plt.tight_layout()
 
     plt.figure
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-deep")
     wpm_graph = plt.figure(figsize=(12,3))
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
@@ -128,7 +137,7 @@ def hgraphs():
     plt.tight_layout()
 
     plt.figure
-    plt.style.use("seaborn")
+    plt.style.use("seaborn-deep")
     wpm_graph = plt.figure(figsize=(12,3))
     wpm_graph.patch.set_facecolor(background)
     wpmline = FigureCanvasTkAgg(wpm_graph, graphs)
@@ -140,7 +149,7 @@ def hgraphs():
     plt.tight_layout()
 
     # WPM Record (Label)
-    wpmrecord = tk.Label(graphs, text="WPM Record")
+    wpmrecord = tk.Label(graphs, text="WPM Record:")
     wpmrecord.grid(column=2, row=0, sticky="N", pady=100, padx=20)
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#1f262e")
 
@@ -150,7 +159,7 @@ def hgraphs():
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#920000")
 
     # ACC Record (Label)
-    wpmrecord = tk.Label(graphs, text="Acc Record")
+    wpmrecord = tk.Label(graphs, text="Acc Record:")
     wpmrecord.grid(column=2, row=1, sticky="N", pady=100, padx=20)
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#1f262e")
 
@@ -160,7 +169,7 @@ def hgraphs():
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#920000")
 
     # Hits Record (Label)
-    wpmrecord = tk.Label(graphs, text="Hits Record")
+    wpmrecord = tk.Label(graphs, text="Hits Record:")
     wpmrecord.grid(column=2, row=2, sticky="N", pady=100, padx=20)
     wpmrecord.config(bg=background, font=("Calibri bold", txtfontsize), fg="#1f262e")
 

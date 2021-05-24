@@ -12,7 +12,7 @@ def wpm():
     sheet = workbook["WPM"]
 
     # Data import from Excel easy
-    global wpmvalues
+    global maxwpm
     wpmvalues = []
 
     start = 2
@@ -20,8 +20,8 @@ def wpm():
         if sheet.cell(row=i, column=3).value != None:
             wpmvalues.append(sheet.cell(row=i, column=3).value)
             start += 1
-wpm()
-maxwpm = max(wpmvalues)
+    maxwpm = max(wpmvalues)
+
 
 def hwpm():
     # open sheet easy
@@ -29,7 +29,7 @@ def hwpm():
     sheet = workbook["WPM"]
 
     # Data import from Excel easy
-    global hwpmvalues
+    global maxhwpm
     hwpmvalues = []
 
     start = 2
@@ -37,8 +37,8 @@ def hwpm():
         if sheet.cell(row=i, column=3).value != None:
             hwpmvalues.append(sheet.cell(row=i, column=3).value)
             start += 1
-hwpm()
-maxhwpm = max(hwpmvalues)
+    maxhwpm = max(hwpmvalues)
+
 
 def acc():
     # open sheet easy
@@ -46,7 +46,7 @@ def acc():
     sheet = workbook["WPM"]
 
     # Data import from Excel easy
-    global accvalues
+    global maxacc
     accvalues = []
 
     start = 2
@@ -54,8 +54,7 @@ def acc():
         if sheet.cell(row=i, column=4).value != None:
             accvalues.append(sheet.cell(row=i, column=4).value)
             start += 1
-acc()
-maxacc = max(accvalues)
+    maxacc = max(accvalues)
 
 
 def hacc():
@@ -64,7 +63,7 @@ def hacc():
     sheet = workbook["WPM"]
 
     # Data import from Excel easy
-    global haccvalues
+    global maxhacc
     haccvalues = []
 
     start = 2
@@ -72,8 +71,7 @@ def hacc():
         if sheet.cell(row=i, column=4).value != None:
             haccvalues.append(sheet.cell(row=i, column=4).value)
             start += 1
-hacc()
-maxhacc = max(haccvalues)
+    maxhacc = max(haccvalues)
 
 
 def hits():
@@ -82,7 +80,7 @@ def hits():
     sheet = workbook["WPM"]
 
     # Data import from Excel easy
-    global hitsvalues
+    global maxhits
     hitsvalues = []
 
     start = 2
@@ -90,8 +88,7 @@ def hits():
         if sheet.cell(row=i, column=5).value != None:
             hitsvalues.append(sheet.cell(row=i, column=5).value)
             start += 1
-hits()
-maxhits = max(hitsvalues)
+    maxhits = max(hitsvalues)
 
 
 def hhits():
@@ -100,7 +97,7 @@ def hhits():
     sheet = workbook["WPM"]
 
     # Data import from Excel easy
-    global hhitsvalues
+    global maxhhits
     hhitsvalues = []
 
     start = 2
@@ -108,5 +105,4 @@ def hhits():
         if sheet.cell(row=i, column=5).value != None:
             hhitsvalues.append(sheet.cell(row=i, column=5).value)
             start += 1
-hhits()
-maxhhits = max(hhitsvalues)
+    maxhhits = max(hhitsvalues)
