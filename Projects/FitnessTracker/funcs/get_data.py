@@ -4,26 +4,27 @@ from tkinter.ttk import *
 import os
 import pandas as pd
 
+workbook = openpyxl.load_workbook("Workout.xlsx")
 
 os.chdir(r"C:\Python\Projects\FitnessTracker")
 
-plan = {"1": "Übung_1",
-        "2": "Übung_2",
-        "3": "Übung_3",
-        "4": "Übung_4",
-        "5": "Übung_5",
-        "6": "Übung_6",
-        "7": "Übung_7"
+global plan
+plan = {
+    1: "Übung_1",
+    2: "Übung_2",
+    3: "Übung_3",
+    4: "Übung_4",
+    5: "Übung_5",
+    6: "Übung_6",
+    7: "Übung_7"
 }
 
-def exer1(Übung):
+def exer():
     global dfset1
     global dfset2
     global dfset3
-    global exer
     # open sheet easy
-    workbook = openpyxl.load_workbook("Workout.xlsx")
-    sheet = workbook[Übung]
+    sheet = workbook["Übung_1"]
 
     # Data import from Excel easy
     nrvalues = []
@@ -53,13 +54,23 @@ def exer1(Übung):
         if sheet.cell(row=i, column=5).value != None:
             set3.append(sheet.cell(row=i, column=5).value)
             start += 1 
-
-    # Aktuelle Übung        
-    exer = sheet.cell(row=1, column=8).value
+            
 
     # Data
     dfset1 = pd.DataFrame({'xvalues': nrvalues, 'yvalues': set1})
     dfset2 = pd.DataFrame({'xvalues': nrvalues, 'yvalues': set2})
     dfset3 = pd.DataFrame({'xvalues': nrvalues, 'yvalues': set3})
+exer()
 
-exer1("Übung_1")
+
+# Aktuelle Übung
+def show_exer():
+    global exercise
+    exercise = []
+    # open sheet 1-7 für Übungsnamen
+    for i in range(1, 8):
+        sheet = workbook[plan[i]]
+        if sheet.cell(row=1, column=8).value != None:
+            exercise.append(sheet.cell(row=1, column=8).value)
+
+show_exer()

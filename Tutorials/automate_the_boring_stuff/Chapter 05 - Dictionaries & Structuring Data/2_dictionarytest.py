@@ -1,4 +1,7 @@
-profil = {'name': 'Jannis', 'age': 27}
+profil = {
+        'name': 'Jannis',
+        'age': 27
+         }
 profil['Job'] = "Ingenieur"
 profil['name'] = "Jannis Bögeholz"
 
