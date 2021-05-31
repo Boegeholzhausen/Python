@@ -1,11 +1,11 @@
-import os, time
+import os, time, datetime
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter.filedialog import Toplevel
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import funcs.get_data as gd
-
+import openpyxl
 
 
 
@@ -113,17 +113,115 @@ def workout_1_tabel():
         entry_field.grid(rowspan=2, column=4, row=3, padx=10)
         entry_field.config(bg="#424457", font=("Calibri bold", 14), fg="white", borderwidth=3, width=16)
 
-
-    def upload():
-        start_btn = tk.Button(workout_1_tabel, text="Uploaded to Excel") 
-        start_btn.grid(column=4, row=5, rowspan=2, sticky="S", pady=10, padx=10)
-        start_btn.config(bg=btncolor, font=("Calibri bold", 14), fg="white", borderwidth=3, width=22) 
-
-
     workout = []
     def make_list():
         workout.append(entry_field.get())
         print(workout)
+
+    # Values in Excel einfügen
+    def upload():
+        now = datetime.datetime.now()
+        start_btn = tk.Button(workout_1_tabel, text="Uploaded to Excel") 
+        start_btn.grid(column=4, row=5, rowspan=2, sticky="S", pady=10, padx=10)
+        start_btn.config(bg=btncolor, font=("Calibri bold", 14), fg="white", borderwidth=3, width=22)
+
+        os.chdir(r"C:\Python\Projects\FitnessTracker")
+        workbook = openpyxl.load_workbook("Workout.xlsx")
+        sheet1 = workbook["Übung_1"]
+        sheet2 = workbook["Übung_2"]
+        sheet3 = workbook["Übung_3"]
+        sheet4 = workbook["Übung_4"]        
+        sheet5 = workbook["Übung_5"]
+        sheet6 = workbook["Übung_6"]
+        sheet7 = workbook["Übung_7"]
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet1.cell(row=i, column=1).value == None:
+                sheet1.cell(row=i, column=1).value = i-1
+                sheet1.cell(row=i, column=2).value = now       
+                sheet1.cell(row=i, column=3).value = int(workout[0])
+                sheet1.cell(row=i, column=4).value = int(workout[1])
+                sheet1.cell(row=i, column=5).value = int(workout[2])
+                break
+            else:
+                start += 1
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet2.cell(row=i, column=1).value == None:    
+                sheet2.cell(row=i, column=1).value = i-1    
+                sheet2.cell(row=i, column=2).value = now          
+                sheet2.cell(row=i, column=3).value = int(workout[3])
+                sheet2.cell(row=i, column=4).value = int(workout[4])
+                sheet2.cell(row=i, column=5).value = int(workout[5])
+                break
+            else:
+                start += 1
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet3.cell(row=i, column=1).value == None:
+                sheet3.cell(row=i, column=1).value = i-1
+                sheet3.cell(row=i, column=2).value = now        
+                sheet3.cell(row=i, column=3).value = int(workout[6])
+                sheet3.cell(row=i, column=4).value = int(workout[7])
+                sheet3.cell(row=i, column=5).value = int(workout[8])
+                break
+            else:
+                start += 1
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet4.cell(row=i, column=1).value == None:
+                sheet4.cell(row=i, column=1).value = i-1
+                sheet4.cell(row=i, column=2).value = now                        
+                sheet4.cell(row=i, column=3).value = int(workout[9])
+                sheet4.cell(row=i, column=4).value = int(workout[10])
+                sheet4.cell(row=i, column=5).value = int(workout[11])
+                break
+            else:
+                start += 1
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet5.cell(row=i, column=1).value == None:
+                sheet5.cell(row=i, column=1).value = i-1
+                sheet5.cell(row=i, column=2).value = now        
+                sheet5.cell(row=i, column=3).value = int(workout[12])
+                sheet5.cell(row=i, column=4).value = int(workout[13])
+                sheet5.cell(row=i, column=5).value = int(workout[14])
+                break
+            else:
+                start += 1
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet6.cell(row=i, column=1).value == None:
+                sheet6.cell(row=i, column=1).value = i-1
+                sheet6.cell(row=i, column=2).value = now       
+                sheet6.cell(row=i, column=3).value = int(workout[15])
+                sheet6.cell(row=i, column=4).value = int(workout[16])
+                sheet6.cell(row=i, column=5).value = int(workout[17])
+                break
+            else:
+                start += 1
+
+        start = 2
+        for i in range(start, 1000):
+            if sheet7.cell(row=i, column=1).value == None:
+                sheet7.cell(row=i, column=1).value = i-1
+                sheet7.cell(row=i, column=2).value = now      
+                sheet7.cell(row=i, column=3).value = int(workout[18])
+                sheet7.cell(row=i, column=4).value = int(workout[19])
+                sheet7.cell(row=i, column=5).value = int(workout[20])
+                break
+            else:
+                start += 1
+
+        workbook.save("Workout.xlsx")
+
+
 
     counter_x = 1
     counter_y = 1
