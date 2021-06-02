@@ -38,7 +38,7 @@ def graphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM)', data=gd.dfwpm)
     plt.xlabel("Nr.")
     plt.ylabel("WPM")
-    plt.legend()
+    plt.legend(loc='upper left')
     plt.grid(True)
     plt.tight_layout()
 
@@ -51,7 +51,7 @@ def graphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy)', data=gd.dfacc)
     plt.xlabel("Nr.")
     plt.ylabel("%")
-    plt.legend()
+    plt.legend(loc='upper left')
     plt.grid(True)
     plt.tight_layout()
 
@@ -64,7 +64,7 @@ def graphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge)', data=gd.dfhits)
     plt.xlabel("Nr.")
     plt.ylabel("Tastenanschläge")
-    plt.legend()
+    plt.legend(loc='upper left')
     plt.grid(True)
     plt.tight_layout()
 
@@ -121,6 +121,7 @@ def hgraphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (WPM) [Hard]', data=gd.dfhwpm)
     plt.xlabel("Nr.")
     plt.ylabel("WPM")
+    plt.legend(loc='upper left')
     plt.grid(True)
     plt.tight_layout()
 
@@ -133,6 +134,7 @@ def hgraphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Accuracy) [Hard]', data=gd.dfhacc)
     plt.xlabel("Nr.")
     plt.ylabel("%")
+    plt.legend(loc='upper left')
     plt.grid(True)
     plt.tight_layout()
 
@@ -145,6 +147,7 @@ def hgraphs():
     plt.plot('xvalues', 'yvalues', color="#2F78BB", linewidth=3, label='WPM Tracker (Tastenanschläge) [Hard]', data=gd.dfhhits)
     plt.xlabel("Nr.")
     plt.ylabel("Tastenanschläge")
+    plt.legend(loc='upper left')
     plt.grid(True)
     plt.tight_layout()
 

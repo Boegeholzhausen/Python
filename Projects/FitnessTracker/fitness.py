@@ -1,4 +1,4 @@
-import os, time, datetime
+import os, datetime
 import tkinter as tk
 from PIL import Image, ImageTk
 from tkinter.filedialog import Toplevel
@@ -8,10 +8,8 @@ import funcs.get_data as gd
 import openpyxl
 
 
-
 # chance directory
 os.chdir(r"C:\Python\Projects\FitnessTracker")
-
 
 root = tk.Tk()
 root.title("Fitness Tracker")
@@ -20,7 +18,7 @@ background = "#488953"
 root.resizable(False, False)
 root.geometry("+1590+150")
 
-canvas = tk.Canvas(root, width=500, height=520, bg=background)
+canvas = tk.Canvas(root, width=500, height=530, bg=background)
 canvas.grid(columnspan=2, rowspan=2)
 
 ## Start Screen (chose workout)
@@ -60,9 +58,17 @@ def workout_1_tabel():
     workout_1_tabel.title("Ring Workout")
     workout_1_tabel.iconbitmap(r"C:\Python\Projects\FitnessTracker\icons\fitness_icon.ico")
     workout_1_tabel.resizable(False, False)
-    canvas_1 = tk.Canvas(workout_1_tabel, width=1090, height=520, bg=background)
+    canvas_1 = tk.Canvas(workout_1_tabel, width=1090, height=530, bg=background)
     canvas_1.grid(columnspan=5, rowspan=8)
     workout_1_tabel.geometry("+490+150")
+
+    ## Timer
+    #def start_timer():
+    #    time = -1
+    #    run = False
+    #    timer_lbl = tk.Label(workout_1_tabel, text="timer")
+    #    timer_lbl.grid(column=4, row=4, rowspan=2, pady=10, padx=10)
+    #    timer_lbl.config(bg=background, font=("Calibri bold", 14), fg="white", width=14)    
 
     ## Tabelle
     tablecolor = "white"
@@ -221,8 +227,7 @@ def workout_1_tabel():
 
         workbook.save("Workout.xlsx")
 
-
-
+    # Eingabe der Values
     counter_x = 1
     counter_y = 1
     def enter_value(nr_col, nr_row):
@@ -427,7 +432,7 @@ def workout_1_tabel():
     start_btn.config(bg=btncolor, font=("Calibri bold", 14), fg="white", borderwidth=3, width=22)  
 
 
-
+# Graphen anzeigen
 def workout_1_graph():
     workout_1_graph = Toplevel(root)
     workout_1_graph.title("Ring Workout")
@@ -435,7 +440,7 @@ def workout_1_graph():
     workout_1_graph.resizable(False, False)
     canvas_1 = tk.Canvas(workout_1_graph, width=1600, height=500, bg=background)
     canvas_1.grid(columnspan=2, rowspan=2)
-    workout_1_graph.geometry("+490+708")
+    workout_1_graph.geometry("+490+718")
 
     # Graph anzeigen
     def change_Graph(nr):
@@ -466,9 +471,7 @@ def workout_1_graph():
     select.config(bg=btncolor, fg="white", font=("Calibri bold", 12), width=30, relief="groove")
 
 
-
-
-
+# Alles für das 2. Workout
 def workout_2():
     workout_2 = Toplevel(root)
     workout_2.title("Ring Workout")

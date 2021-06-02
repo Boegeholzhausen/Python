@@ -4,9 +4,10 @@ from tkinter.ttk import *
 import os
 import pandas as pd
 
-workbook = openpyxl.load_workbook("Workout.xlsx")
 
 os.chdir(r"C:\Python\Projects\FitnessTracker")
+
+workbook = openpyxl.load_workbook("Workout.xlsx")
 
 global plan
 plan = {
