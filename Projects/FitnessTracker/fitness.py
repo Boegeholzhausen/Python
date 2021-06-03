@@ -118,6 +118,8 @@ def workout_1_tabel():
         entry_field = tk.Entry(workout_1_tabel) # Hier die Reps eintragen
         entry_field.grid(rowspan=2, column=4, row=3, padx=10)
         entry_field.config(bg="#424457", font=("Calibri bold", 14), fg="white", borderwidth=3, width=16)
+        entry_field.bind("<Return>", (lambda event:[enter_value(counter_x, counter_y), make_list()]))
+
 
     workout = []
     def make_list():
