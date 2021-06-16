@@ -7,7 +7,7 @@ b = Bridge(bridge_ip_address)
 lights = b.get_light_objects()
 
 
-for i in range(1,50000):
+for i in range(1,500000):
 	for light in lights:
 		light.brightness = 254
 		light.xy = [random.random(),random.random()]
