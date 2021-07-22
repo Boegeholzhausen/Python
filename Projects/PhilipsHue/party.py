@@ -11,4 +11,4 @@ for i in range(1,500000):
 	for light in lights:
 		light.brightness = 254
 		light.xy = [random.random(),random.random()]
-	time.sleep(0.1)
+	time.sleep(1)
