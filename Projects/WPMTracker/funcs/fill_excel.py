@@ -37,6 +37,37 @@ def copy():
     time.sleep(0.1)
     pyautogui.moveTo(688, 512)
 
+# Von der Seite kopieren und resetten [hd]
+def copyhd():
+    time.sleep(0.2)
+    pyautogui.moveTo(458, 404)
+    time.sleep(0.1)
+    pyautogui.drag(247, 228, duration=0.6, button="left")
+    pyautogui.keyDown("ctrl")
+    pyautogui.press("c")
+    pyautogui.keyUp("ctrl")
+
+    time.sleep(0.5)
+    pyautogui.click(1206, 286)
+    time.sleep(0.1)
+    pyautogui.moveTo(525, 410)
+
+
+#alt
+#def copyhd():
+#    time.sleep(0.2)
+#    pyautogui.moveTo(563, 508)
+#    time.sleep(0.1)
+#    pyautogui.drag(321, 277, duration=0.6, button="left")
+#    pyautogui.keyDown("ctrl")
+#    pyautogui.press("c")
+#    pyautogui.keyUp("ctrl")
+#
+#    time.sleep(0.5)
+#    pyautogui.click(1508, 359)
+#    time.sleep(0.1)
+#    pyautogui.moveTo(566, 508)
+
 
 # Values in Excel eintragen [easy]
 def fill_excel_easy():
@@ -236,5 +267,19 @@ def getValues():
 def gethValues():
     # Kopiere Values von der Seite
     copy()
+    # In Excel eintragen
+    fill_excel_hard()
+
+# Values Kopieren, Werte finden und in Excel passend speichern [easy, HD]
+def getValueshd():
+    # Kopiere Values von der Seite
+    copyhd()
+    # In Excel eintragen
+    fill_excel_easy()
+
+# Values Kopieren, Werte finden und in Excel passend speichern [hard, HD]
+def gethValueshd():
+    # Kopiere Values von der Seite
+    copyhd()
     # In Excel eintragen
     fill_excel_hard()

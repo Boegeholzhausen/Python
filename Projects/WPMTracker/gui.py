@@ -191,8 +191,8 @@ root.resizable(False, False)
 root.geometry("+-500+200")
 
 
-canvas = tk.Canvas(root, width=460, height= 750, bg=background)
-canvas.grid(columnspan=2, rowspan=9)
+canvas = tk.Canvas(root, width=460, height= 850, bg=background)
+canvas.grid(columnspan=2, rowspan=10)
 
 
 ## TK Window
@@ -235,17 +235,26 @@ hspeed_btn.grid(column=1, row=2)
 hspeed_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
 # Button Ergebniss einlesen
-result_btn = tk.Button(root, text="Copy Results", command=lambda:fe.getValues())
+result_btn = tk.Button(root, text="Copy Results (WQHD)", command=lambda:fe.getValues())
 result_btn.grid(column=0, row=3)
 result_btn.config(bg="#0A4A1B", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
-hresult_btn = tk.Button(root, text="Copy Results", command=lambda:fe.gethValues())
+hresult_btn = tk.Button(root, text="Copy Results (WQHD)", command=lambda:fe.gethValues())
 hresult_btn.grid(column=1, row=3)
+hresult_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
+
+# Button Ergebniss einlesen
+result_btn = tk.Button(root, text="Copy Results (FHD)", command=lambda:fe.getValueshd())
+result_btn.grid(column=0, row=4)
+result_btn.config(bg="#0A4A1B", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
+
+hresult_btn = tk.Button(root, text="Copy Results (FHD)", command=lambda:fe.gethValueshd())
+hresult_btn.grid(column=1, row=4)
 hresult_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
 # Instuction 2
 instructions2= tk.Label(root, text="Excel Files")
-instructions2.grid(columnspan=3, column=0, row=4)
+instructions2.grid(columnspan=3, column=0, row=5)
 instructions2.config(bg=background, font=("Calibri bold", txtfontsize))
 
 # Excel_Icon 1
@@ -253,26 +262,26 @@ excel_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\excel2.png")
 excel_icon = ImageTk.PhotoImage(excel_icon)
 excel_icon_label = tk.Label(root, image=excel_icon, bg = background)
 excel_icon_label.image = excel_icon
-excel_icon_label.grid(columnspan=1, column=1, row=4, padx=30, sticky="E")
+excel_icon_label.grid(columnspan=1, column=1, row=5, padx=30, sticky="E")
 # Excel_Icon 2
 excel_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\excel1.png")
 excel_icon = ImageTk.PhotoImage(excel_icon)
 excel_icon_label = tk.Label(root, image=excel_icon, bg = background)
 excel_icon_label.image = excel_icon
-excel_icon_label.grid(columnspan=1, column=0, row=4, padx=30, sticky="W")
+excel_icon_label.grid(columnspan=1, column=0, row=5, padx=30, sticky="W")
 
 # Button easy & hard excel
 easy_btn = tk.Button(root, text="Easy", command=lambda:oe.open_easy())
-easy_btn.grid(column=0, row=5)
+easy_btn.grid(column=0, row=6)
 easy_btn.config(bg="#0A4A1B", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=4)
 
 hard_btn = tk.Button(root, text="Hard", command=lambda:oe.open_hard())
-hard_btn.grid(column=1, row=5)
+hard_btn.grid(column=1, row=6)
 hard_btn.config(bg="#920000", fg="white", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=4)
 
 # Instuction 3
 instructions3 = tk.Label(root, text="Graphs & Records")
-instructions3.grid(columnspan=2, column=0, row=6)
+instructions3.grid(columnspan=2, column=0, row=7)
 instructions3.config(bg=background, font=("Calibri bold", txtfontsize))
 
 # Graph_Icon
@@ -280,23 +289,23 @@ graph_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\trophy.png")
 graph_icon = ImageTk.PhotoImage(graph_icon)
 graph_icon_label = tk.Label(root, image=graph_icon, bg = background)
 graph_icon_label.image = graph_icon
-graph_icon_label.grid(columnspan=1, column=1, row=6, padx=30, sticky="E")
+graph_icon_label.grid(columnspan=1, column=1, row=7, padx=30, sticky="E")
 
 # Trophy_icon
 trophy_icon = Image.open(r"C:\Python\Projects\WPMTracker\icons\graph.png")
 trophy_icon = ImageTk.PhotoImage(trophy_icon)
 trophy_icon_label = tk.Label(root, image=trophy_icon, bg = background)
 trophy_icon_label.image = trophy_icon
-trophy_icon_label.grid(columnspan=1, column=0, row=6, padx=30, sticky="W")
+trophy_icon_label.grid(columnspan=1, column=0, row=7, padx=30, sticky="W")
 
 # #16465E darkblue
 # Button easy&hard graph
 records_btn = tk.Button(root, text = "Easy", command=lambda:graphs())
-records_btn.grid(column=0, row=7)
+records_btn.grid(column=0, row=8)
 records_btn.config(bg="#85C98B", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
 hrecords_btn = tk.Button(root, text = "Hard", command=lambda:hgraphs())
-hrecords_btn.grid(column=1, row=7)
+hrecords_btn.grid(column=1, row=8)
 hrecords_btn.config(bg="#FF5050", fg="#181926", font=("Calibri bold", btnfontsize), height=btnh, width=btnw, borderwidth=5)
 
 root.mainloop()
